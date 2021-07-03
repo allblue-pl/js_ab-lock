@@ -21,9 +21,7 @@ class Lock
             subqueue = this._createQueue(obj);
 
         subqueue.push(fn);
-
-        console.log('Liiii');
-
+        
         if (subqueue.length === 1)
             await this._executeNextFn(obj);
     }
