@@ -9,13 +9,11 @@ const
 class abLock_Class
 {
 
-    constructor()
-    {
+    constructor() {
         this._lock = new Lock();
     }
 
-    async sync(obj, fn)
-    {
+    async sync(obj, fn) {
         js0.args(arguments, null, 'function');
 
         await this._lock.sync(obj, fn);

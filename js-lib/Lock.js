@@ -7,13 +7,11 @@ const
 class Lock
 {
 
-    constructor()
-    {
+    constructor() {
         this._queue = [];
     }
 
-    async sync(obj, fn)
-    {
+    async sync(obj, fn) {
         js0.args(arguments, null, 'function');
 
         let subqueue = this._getSubqueue(obj);
@@ -27,16 +25,14 @@ class Lock
     }
 
 
-    _createQueue(obj)
-    {
+    _createQueue(obj) {
         let subqueue = [];
         this._queue.push([ obj, subqueue ]);
 
         return subqueue;
     }
 
-    _getSubqueue(obj)
-    {
+    _getSubqueue(obj) {
         for (let subqueue of this._queue) {
             if (subqueue[0] === obj)
                 return subqueue[1];
@@ -45,8 +41,7 @@ class Lock
         return null;
     }
 
-    async _executeNextFn(obj)
-    {
+    async _executeNextFn(obj) {
         let subqueue = this._getSubqueue(obj);
         if (subqueue.length === 0)
             return;
